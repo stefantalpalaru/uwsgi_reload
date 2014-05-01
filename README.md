@@ -30,13 +30,13 @@ their meaning:
   that's going to be running in the directory watched by the emperor like this
   (usually one per CPU core - 8 in this example):
 ```sh
-  cd /etc/uwsgi.d
-  for N in $(seq -f '%02.f' 1 8); do ln -s /some/project/dir/uwsgi_vassal.ini "uwsgi_vassal_${N}.ini"; done
+    cd /etc/uwsgi.d
+    for N in $(seq -f '%02.f' 1 8); do ln -s /some/project/dir/uwsgi_vassal.ini "uwsgi_vassal_${N}.ini"; done
 ```
 - [uwsgi.conf.d.fragment][6] - a fragment from "/etc/conf.d/uwsgi" on a Gentoo system.
   Those variables translate more or less to this command line:
 ```sh
-  uwsgi --daemonize "${UWSGI_LOG_FILE}" --emperor "${UWSGI_EMPEROR_PATH}" ${UWSGI_EXTRA_OPTIONS}
+    uwsgi --daemonize "${UWSGI_LOG_FILE}" --emperor "${UWSGI_EMPEROR_PATH}" ${UWSGI_EXTRA_OPTIONS}
 ```
   It's your job to create ${UWSGI_LOG_FILE} and change its ownership before starting the daemon.
 - [nginx.conf.fragment][7] - /etc/nginx/nginx.conf fragment showing how to set
