@@ -1,0 +1,33 @@
+# /etc/nginx/nginx.conf fragment
+
+# ...
+
+http {
+
+    # ...
+    
+    upstream upstream-uwsgi {
+    	server unix:///tmp/uwsgi.sock;
+    }
+
+    # ...
+    
+    server {
+        listen 80;
+        listen 443 ssl;
+        server_name domain.tld;
+
+    	# ...
+
+        location / {
+            proxy_set_header Host $http_host;
+            proxy_read_timeout 5m;
+	    include uwsgi_params;
+	    # the fastrouter key is derived from HTTP_HOST or server_name
+	    # if you want to set it yourself, do it like this:
+	    #uwsgi_param UWSGI_FASTROUTER_KEY domain.tld;
+	    uwsgi_pass upstream-uwsgi;
+        }
+    }
+}
+

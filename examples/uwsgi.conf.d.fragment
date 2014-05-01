@@ -1,0 +1,25 @@
+# /etc/conf.d/uwsgi fragment from a Gentoo server
+
+# The log file path. If empty, log only errors
+#
+UWSGI_LOG_FILE=/var/log/uwsgi-emperor
+
+# The user to run your application as. If you do not specify these,
+# the application will be run as user root.
+#
+UWSGI_USER=some_user
+
+# The group to run your application as. If you do not specify these,
+# the application will be run as group root.
+#
+UWSGI_GROUP=some_group
+
+# Run the uwsgi emperor which loads vassals dynamically from this PATH
+# see http://projects.unbit.it/uwsgi/wiki/Emperor
+# The advised Gentoo folder is /etc/uwsgi.d/
+UWSGI_EMPEROR_PATH=/etc/uwsgi.d/
+
+# Additional options you might want to pass to uWSGI
+#
+UWSGI_EXTRA_OPTIONS="--master --fastrouter /tmp/uwsgi.sock --fastrouter-subscription-server /tmp/uwsgi_ss.sock --emperor-stats-server /tmp/uwsgi_stats.sock --fastrouter-stats-server /tmp/uwsgi_fastrouter_stats.sock --thunder-lock --reload-mercy 300 --worker-reload-mercy 300 --buffer-size 65535 --emperor-nofollow --log-date"
+

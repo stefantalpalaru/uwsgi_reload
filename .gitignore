@@ -1,0 +1,7 @@
+*.pyc
+*.pyo
+*.swp
+*.swo
+*.*~
+vim.session
+
