@@ -27,8 +27,8 @@ their meaning:
   already be warmed up.
 - [uwsgi_vassal.ini][5] - vassal configuration. You need to create
   "/home/some_user/uwsgi" yourself and make symbolic links for each vassal
-  that's going to be running in the directory watched by the emperor like this
-  (usually one per CPU core - 8 in this example):
+  that's going to be running (usually one per CPU core - 8 in this example) in
+  the directory watched by the emperor :
 ```sh
     cd /etc/uwsgi.d
     for N in $(seq -f '%02.f' 1 8); do ln -s /some/project/dir/uwsgi_vassal.ini "uwsgi_vassal_${N}.ini"; done
