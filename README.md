@@ -26,10 +26,18 @@ their meaning:
   the uWSGI vassal will be ready to receive connections that lazy Django project will
   already be warmed up.
 - [uwsgi_vassal.ini][5] - vassal configuration. You need to create
-  "/home/some_user/uwsgi" yourself.
+  "/home/some_user/uwsgi" yourself and make symbolic links for each vassal
+  that's going to be running in the directory watched by the emperor like this
+  (usually one per CPU core - 8 in this example):
+```sh
+  cd /etc/uwsgi.d
+  for N in $(seq -f '%02.f' 1 8); do ln -s /some/project/dir/uwsgi_vassal.ini "uwsgi_vassal_${N}.ini"; done
+```
 - [uwsgi.conf.d.fragment][6] - a fragment from "/etc/conf.d/uwsgi" on a Gentoo system.
   Those variables translate more or less to this command line:
-  'uwsgi --daemonize "${UWSGI_LOG_FILE}" --emperor "${UWSGI_EMPEROR_PATH}" ${UWSGI_EXTRA_OPTIONS}'
+```sh
+  uwsgi --daemonize "${UWSGI_LOG_FILE}" --emperor "${UWSGI_EMPEROR_PATH}" ${UWSGI_EXTRA_OPTIONS}
+```
   It's your job to create ${UWSGI_LOG_FILE} and change its ownership before starting the daemon.
 - [nginx.conf.fragment][7] - /etc/nginx/nginx.conf fragment showing how to set
   up an upstream pointing to the fastrouter socket and an optional fixed
