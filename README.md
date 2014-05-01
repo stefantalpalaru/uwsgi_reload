@@ -49,7 +49,7 @@ their meaning:
 In all these example files you'll find placeholders that you need to change:
 - some_user
 - some_group
-- /home/some_user - the directory where a bunch of files and Unix sockets are created by the vassals
+- /home/some_user/uwsgi - the directory where a bunch of files and Unix sockets are created by the vassals
 - /some/project/dir - Django project directory where wsgi.py can be found.
 
 ##usage
