@@ -1,5 +1,8 @@
 ##description
 
+For a gentle introduction see [this blog post][10]. What follows is a more technical
+description.
+
 uwsgi_reload.py is a script for the proper graceful reloading of [uWSGI][1]
 vassals in a fastrouter based setup. The following guarantees are provided:
 - only one instance of the script can run at any given time
@@ -118,4 +121,5 @@ twice. There should be exactly zero failed requests.
 [7]: examples/nginx.conf.fragment
 [8]: examples/uwsgi_reload.sh
 [9]: https://en.wikipedia.org/wiki/ApacheBench
+[10]: https://stefantalpalaru.wordpress.com/2014/05/02/uwsgi-and-graceful-reloading/
 
