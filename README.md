@@ -93,6 +93,15 @@ optional arguments:
 
 Mozilla Public License Version 2.0
 
+##testing
+
+Start a benchmarking tool like ab ([ApacheBench][9]) in one terminal:
+```sh
+ab -c 10 -n 3000 -q domain.tld/
+```
+and while this is running run the reload script in another terminal once or
+twice. There should be exactly zero failed requests.
+
 ##credits
 
 - author: Stefan Talpalaru <stefantalpalaru@yahoo.com>
@@ -108,4 +117,5 @@ Mozilla Public License Version 2.0
 [6]: examples/uwsgi.conf.d.fragment
 [7]: examples/nginx.conf.fragment
 [8]: examples/uwsgi_reload.sh
+[9]: https://en.wikipedia.org/wiki/ApacheBench
 
