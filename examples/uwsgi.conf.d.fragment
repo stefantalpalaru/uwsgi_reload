@@ -21,5 +21,5 @@ UWSGI_EMPEROR_PATH=/etc/uwsgi.d/
 
 # Additional options you might want to pass to uWSGI
 #
-UWSGI_EXTRA_OPTIONS="--master --fastrouter /tmp/uwsgi.sock --fastrouter-subscription-server /tmp/uwsgi_ss.sock --emperor-stats-server /tmp/uwsgi_stats.sock --fastrouter-stats-server /tmp/uwsgi_fastrouter_stats.sock --thunder-lock --reload-mercy 300 --worker-reload-mercy 300 --buffer-size 65535 --emperor-nofollow --log-date"
+UWSGI_EXTRA_OPTIONS="--master --fastrouter /tmp/uwsgi.sock --fastrouter-subscription-server /tmp/uwsgi_ss.sock --emperor-stats-server /tmp/uwsgi_stats.sock --fastrouter-stats-server /tmp/uwsgi_fastrouter_stats.sock --thunder-lock --reload-mercy 300 --worker-reload-mercy 300 --buffer-size 65535 --emperor-nofollow --log-date --fastrouter-timeout 300 --socket-timeout 300"
 
