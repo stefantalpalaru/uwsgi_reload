@@ -120,13 +120,14 @@ def reload_vassals(ini_files):
     """
     vassal_last_mod_timestamp = {}
     vassal_stopped = {}
-    start_timestamp = time.time()
+    vassal_reload_start_timestamp = {}
     names = []
     if isinstance(ini_files, basestring):
         ini_files = [ini_files]
     for ini_file in ini_files:
         name = ini_file.split('/')[-1].split('.')[0]
         names.append(name)
+        vassal_reload_start_timestamp[name] = time.time()
         vassal_last_mod_timestamp[name] = last_mod_timestamp(name)
         vassal_stopped[name] = False
         #print_vassal_info(name)
@@ -144,7 +145,7 @@ def reload_vassals(ini_files):
                     #print_vassal_info(name)
                     print('%s: reloaded' % name)
                 break
-            if time.time() - start_timestamp >= args.timeout:
+            if time.time() - vassal_reload_start_timestamp[name] >= args.timeout:
                 del names[name_index]
                 if not args.quiet:
                     #print_emperor_stats(name)
