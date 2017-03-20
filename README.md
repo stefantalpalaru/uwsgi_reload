@@ -1,4 +1,4 @@
-##description
+## description
 
 For a gentle introduction see [this blog post][10]. What follows is a more technical
 description.
@@ -55,7 +55,7 @@ In all these example files you'll find placeholders that you need to change:
 - /home/some_user/uwsgi - the directory where a bunch of files and Unix sockets are created by the vassals
 - /some/project/dir - Django project directory where wsgi.py can be found.
 
-##usage
+## usage
 
 ```sh
 $ ./uwsgi_reload.py --help
@@ -87,16 +87,16 @@ optional arguments:
   -q, --quiet           supress output (default: False)
 ```
 
-##requirements
+## requirements
 
 - Python 2
 - [uWSGI][1]
 
-##license
+## license
 
 Mozilla Public License Version 2.0
 
-##testing
+## testing
 
 Start a benchmarking tool like ab ([ApacheBench][9]) in one terminal:
 ```sh
@@ -105,9 +105,9 @@ ab -c 10 -n 3000 -q domain.tld/
 and while this is running run the reload script in another terminal once or
 twice. There should be exactly zero failed requests.
 
-##credits
+## credits
 
-- author: Stefan Talpalaru <stefantalpalaru@yahoo.com>
+- author: Ștefan Talpalaru <stefantalpalaru@yahoo.com>
 
 - homepage: https://github.com/stefantalpalaru/uwsgi_reload
 
